@@ -9,12 +9,29 @@ import { NavItem } from "./LinkScramble";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolledUp, setScrolledUp] = useState(false);
+  const [time, setTime] = useState("");
+
   const navRef = useRef<HTMLElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLLIElement[]>([]);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  useEffect(() => {
+    const updateTime = () => {
+      setTime(
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (navRef.current) {
@@ -25,6 +42,7 @@ export function Navbar() {
           y: "0%",
           opacity: 1,
           duration: 0.8,
+          delay: 0.3,
           ease: "power4.out",
         }
       );
@@ -42,11 +60,7 @@ export function Navbar() {
 
       if (currentScrollY === 0) {
         setScrolledUp(false);
-        gsap.to(nav, {
-          y: "0%",
-          duration: 0.6,
-          ease: "power3.out",
-        });
+        gsap.to(nav, { y: "0%", duration: 0.6, ease: "power3.out" });
         isHidden = false;
         lastScrollY = currentScrollY;
         return;
@@ -57,11 +71,7 @@ export function Navbar() {
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         if (!isHidden) {
           isHidden = true;
-          gsap.to(nav, {
-            y: "-120%",
-            duration: 0.6,
-            ease: "power3.inOut",
-          });
+          gsap.to(nav, { y: "-120%", duration: 0.6, ease: "power3.inOut" });
         }
       } else {
         if (isHidden) {
@@ -80,6 +90,15 @@ export function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (sidebarRef.current) {
+      gsap.set(sidebarRef.current, { x: "100%" });
+    }
+    if (overlayRef.current) {
+      gsap.set(overlayRef.current, { opacity: 0, pointerEvents: "none" });
+    }
   }, []);
 
   useEffect(() => {
@@ -145,9 +164,9 @@ export function Navbar() {
     <>
       <nav
         ref={navRef}
-        className={`safe-top fixed top-0 text-white w-full  transition-all duration-300 ${
+        className={`safe-top fixed top-0 text-white w-full transition-all duration-300 ${
           scrolledUp
-            ? "bg-[#0a090f] top-2 backdrop-blur-md border border-[#39383a] rounded-md shadow-lg max-w-[calc(100%-10px)] md:max-w-[calc(100%-10px)]  left-1"
+            ? "bg-[#0a090f] top-2 backdrop-blur-md border border-[#39383a] rounded-md shadow-lg max-w-[calc(100%-10px)] md:max-w-[calc(100%-10px)] left-1"
             : "bg-[#0a090f] border-b border-[#39383a] rounded-none w-full left-0 translate-x-0"
         }`}
       >
@@ -160,12 +179,7 @@ export function Navbar() {
             <NavItem text="CONTACT" />
           </ul>
           <div className="flex items-center gap-4">
-            <p className="text-sm font-medium">
-              {new Date().toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </p>
+            <p className="text-sm font-medium">{time}</p>
             {!isOpen && (
               <button
                 className="md:hidden z-50 border border-[#353535] p-2 rounded-full bg-transparent"
@@ -177,6 +191,7 @@ export function Navbar() {
           </div>
         </div>
       </nav>
+
       <div
         ref={overlayRef}
         className="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none z-40"
@@ -185,7 +200,11 @@ export function Navbar() {
 
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-[-10px] z-50 h-full w-[75%] sm:w-[60%] bg-[#5542ff] text-white flex flex-col translate-x-full`}
+        className={`fixed top-0 right-0 z-50 h-full w-[75%] sm:w-[60%] 
+                 bg-[#5542ff] text-white flex flex-col 
+                 [clip-path:polygon(0_0,100%_0,100%_100%,20px_100%,0_calc(100%-40px))]  ${
+                   isOpen ? "translate-x-0" : "translate-x-full"
+                 }`}
       >
         <div className="flex justify-between p-6">
           <p className="text-xl font-bold">alfindwi</p>
@@ -212,7 +231,7 @@ export function Navbar() {
               >
                 <span className="text-sm opacity-70">
                   [{String(i + 1).padStart(2, "0")}]
-                </span>{" "}
+                </span>
                 {item}
               </a>
             </li>
@@ -220,12 +239,7 @@ export function Navbar() {
         </ul>
 
         <div className="text-center pb-6 text-xs opacity-80">
-          <p>
-            {new Date().toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
-          </p>
+          <p>{time}</p>
         </div>
       </div>
     </>
