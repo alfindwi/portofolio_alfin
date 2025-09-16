@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Menu, X } from "lucide-react"; // pastikan ada lucide-react
+import { Menu, X } from "lucide-react";
 import { LogoScramble } from "./logoScramble";
 import { NavItem } from "./LinkScramble";
 
@@ -164,11 +164,12 @@ export function Navbar() {
     <>
       <nav
         ref={navRef}
-        className={`safe-top fixed top-0 text-white w-full transition-all duration-300 ${
-          scrolledUp
-            ? "bg-[#0a090f] top-2 backdrop-blur-md border border-[#39383a] rounded-md shadow-lg max-w-[calc(100%-10px)] md:max-w-[calc(100%-10px)] left-1"
-            : "bg-[#0a090f] border-b border-[#39383a] rounded-none w-full left-0 translate-x-0"
-        }`}
+        className={`fixed top-0 left-0 w-full text-white transition-all duration-300 z-50
+    ${
+      scrolledUp
+        ? "bg-[#0a090f] backdrop-blur-md border border-[#6a686d] rounded-md shadow-lg max-w-[calc(100%-5px)] md:max-w-[calc(100%-10px)] left-1 mt-2"
+        : "bg-[#0a090f] border-b border-[#6a686d]"
+    }`}
       >
         <div className="max-w-full mx-auto flex items-center justify-between py-3 px-8">
           <LogoScramble />
