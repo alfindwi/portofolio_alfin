@@ -33,21 +33,7 @@ export function Navbar() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    if (navRef.current) {
-      gsap.fromTo(
-        navRef.current,
-        { y: "-150%", opacity: 0 },
-        {
-          y: "0%",
-          opacity: 1,
-          duration: 0.8,
-          delay: 0.3,
-          ease: "power4.out",
-        }
-      );
-    }
-  }, []);
+
 
   useEffect(() => {
     let lastScrollY = window.scrollY;

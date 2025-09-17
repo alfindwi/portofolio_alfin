@@ -6,13 +6,21 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
+type ButtonSize = "sm" | "md" | "lg";
+
 type ButtonItemProps = {
   text: string;
   onClick?: () => void;
   className?: string;
+  size?: ButtonSize;
 };
 
-export function ButtonItem({ text, onClick, className = "" }: ButtonItemProps) {
+export function ButtonItem({
+  text,
+  onClick,
+  className = "",
+  size = "md",
+}: ButtonItemProps) {
   const itemRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
 
@@ -21,7 +29,6 @@ export function ButtonItem({ text, onClick, className = "" }: ButtonItemProps) {
     const txtEl = textRef.current;
     if (!el || !txtEl) return;
 
-    // ✅ Hitung lebar awal dan kunci dengan min-width
     const textWidth = getTextWidth(text, getComputedStyle(txtEl));
     txtEl.style.display = "inline-block";
     txtEl.style.minWidth = `${textWidth}px`;
@@ -54,17 +61,20 @@ export function ButtonItem({ text, onClick, className = "" }: ButtonItemProps) {
     };
   }, [text]);
 
+  const sizeClasses: Record<ButtonSize, string> = {
+    sm: "px-3 py-1 text-sm",
+    md: "px-5 py-2 text-base",
+    lg: "px-8 py-3 text-lg",
+  };
+
   return (
     <li className="relative p-1 overflow-hidden list-none">
       <button
         ref={itemRef}
         onClick={onClick}
-        className={`relative z-10 
-          px-4 py-2 
-          md:px-10 md:py-4 
-          flex items-center justify-center font-normal
-          cursor-pointer
-          ${className}`}
+        className={`relative z-10 flex items-center justify-center 
+          font-normal cursor-pointer rounded-md
+          ${sizeClasses[size]} ${className}`}
       >
         <span ref={textRef}>{text}</span>
       </button>

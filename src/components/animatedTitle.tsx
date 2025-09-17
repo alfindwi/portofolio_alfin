@@ -22,9 +22,9 @@ export default function AnimatedTitle() {
         x: 0,
         opacity: 1,
         skewX: 0,
-        ease: "back.out(1.7)", // bikin overshoot
+        ease: "back.out(1.7)", 
         duration: 0.8,
-        stagger: 0.05, // animasi per huruf
+        stagger: 0.05, 
       }
     );
   }, []);
