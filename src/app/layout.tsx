@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.className}>
+      <body className={`scroll-smooth ${spaceGrotesk.className}`}>
         <Navbar />
         {children}
       </body>

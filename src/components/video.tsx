@@ -36,6 +36,13 @@ const projects: Project[] = [
     description:
       "A modern e-commerce app with optimized checkout and responsive design.",
   },
+  {
+    id: 4,
+    videoSrc: "/video4.mp4",
+    title: "Mukbang",
+    description:
+      "A modern e-commerce app with optimized checkout and responsive design.",
+  },
 ];
 
 export function Video() {
@@ -101,7 +108,7 @@ export function Video() {
   const proj = projects[activeIndex];
 
   return (
-    <div ref={containerRef} className="relative w-full h-[350vh]">
+    <div ref={containerRef} className="relative w-full h-[450vh] px-10">
       <div className="sticky top-0 h-screen ">
         <div
           ref={cardRef}

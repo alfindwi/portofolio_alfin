@@ -9,7 +9,7 @@ import { NavItem } from "./LinkScramble";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolledUp, setScrolledUp] = useState(false);
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState("--:--");
 
   const navRef = useRef<HTMLElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -32,8 +32,6 @@ export function Navbar() {
     const interval = setInterval(updateTime, 60000);
     return () => clearInterval(interval);
   }, []);
-
-
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -226,7 +224,7 @@ export function Navbar() {
         </ul>
 
         <div className="text-center pb-6 text-xs opacity-80">
-          <p>{time}</p>
+          <p suppressHydrationWarning>{time}</p>
         </div>
       </div>
     </>
