@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { Video } from "@/components/video";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TechLogo } from "@/components/techLogo";
+import { DescChooseMe, WhyChooseMe } from "@/components/whyChooseMe";
 
 export default function WelcomePage() {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -314,8 +315,13 @@ export default function WelcomePage() {
         <Video />
       </div>
 
-      <div id="tech-logo-section" className="w-full mt-5">
+      <div id="tech-logo-section" className="w-full">
         <TechLogo />
+      </div>
+
+      <div id="why-choose-section" className="w-full px-10 ">
+        <WhyChooseMe />
+        <DescChooseMe/>
       </div>
     </main>
   );

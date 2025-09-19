@@ -9,8 +9,8 @@ import {
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import {
-    SiChakraui,
-    SiExpress,
+  SiChakraui,
+  SiExpress,
   SiGit,
   SiHibernate,
   SiJavascript,
@@ -85,11 +85,11 @@ const imageLogos = [
 
 export function TechLogo() {
   return (
-    <section className="relative w-full bg-[#0a090f] py-8">
+    <section className="relative w-full bg-[#0a090f] mt-10">
       <div className="relative w-full flex items-center justify-center">
         <div className="border-t border-b w-full py-2 gap-3">
           <Marquee>
-            <MarqueeFade side="left"/>
+            <MarqueeFade side="left" />
             <MarqueeFade side="right" />
             <MarqueeContent>
               {new Array(10).fill(null).map((_, index) => (
@@ -97,6 +97,12 @@ export function TechLogo() {
                   <div className="flex justify-center items-center gap-3">
                     <span className="text-xs tracking-widest text-white uppercase">
                       Tech Stack
+                    </span>
+                    <span className="text-xs tracking-widest text-white uppercase">
+                      ////////////////////
+                    </span>
+                    <span className="text-xs tracking-widest text-white uppercase">
+                      TCH_STK_01101
                     </span>
                     <span className="text-xs tracking-widest text-white uppercase">
                       ////////////////////

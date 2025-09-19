@@ -1,20 +1,45 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
-import { LogoScramble } from "./logoScramble";
+import { useEffect, useRef, useState } from "react";
+import { LuAudioLines } from "react-icons/lu";
 import { NavItem } from "./LinkScramble";
+import { LogoScramble } from "./logoScramble";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolledUp, setScrolledUp] = useState(false);
+  const [sound, setSound] = useState(false);
   const [time, setTime] = useState("--:--");
 
   const navRef = useRef<HTMLElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLLIElement[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const handleSound = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio("/backsound.mp3");
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.6;
+    }
+    if (!sound) {
+      audioRef.current
+        .play()
+        .then(() => {
+          setSound(true);
+        })
+        .catch(() => {
+          alert("Browser belum mengizinkan audio. Klik lagi untuk aktifkan.");
+        });
+    } else {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setSound(false);
+    }
+  };
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
@@ -155,15 +180,23 @@ export function Navbar() {
         : "bg-[#0a090f] border-b border-[#6a686d]"
     }`}
       >
-        <div className="max-w-full mx-auto flex items-center justify-between py-3 px-8">
+        <div className="relative max-w-full mx-auto flex items-center justify-between py-4 px-8">
           <LogoScramble />
-          <ul className="hidden md:flex gap-6">
-            <NavItem text="WORK" />
-            <NavItem text="EXPERIMENTS" />
+
+          <ul className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
+            <NavItem text="PROJECTS" />
             <NavItem text="ABOUT" />
             <NavItem text="CONTACT" />
           </ul>
+
           <div className="flex items-center gap-4">
+            <button
+              onClick={handleSound}
+              className="flex items-center gap-2 text-[11px] cursor-pointer hover:bg-[#353535]/30 hover:border border-[#353535] p-2 rounded-sm bg-transparent"
+            >
+              TURN ON SOUND
+              <LuAudioLines className="text-lg" />
+            </button>
             <p className="text-sm font-medium">{time}</p>
             {!isOpen && (
               <button

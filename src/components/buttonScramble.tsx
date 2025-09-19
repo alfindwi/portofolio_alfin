@@ -23,6 +23,7 @@ export function ButtonItem({
 }: ButtonItemProps) {
   const itemRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     const el = itemRef.current;
@@ -67,11 +68,21 @@ export function ButtonItem({
     lg: "px-8 py-3 text-lg",
   };
 
+  const handleHover = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  };
+
   return (
     <li className="relative p-1 overflow-hidden list-none">
+      <audio ref={audioRef} src="/scramble.mp3" preload="auto" />
+
       <button
         ref={itemRef}
         onClick={onClick}
+        onMouseEnter={handleHover}
         className={`relative z-10 flex items-center justify-center 
           font-normal cursor-pointer rounded-md
           ${sizeClasses[size]} ${className}`}
