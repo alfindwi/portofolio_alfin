@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
@@ -13,6 +14,7 @@ type ButtonItemProps = {
   onClick?: () => void;
   className?: string;
   size?: ButtonSize;
+  href?: string;
 };
 
 export function ButtonItem({
@@ -20,6 +22,7 @@ export function ButtonItem({
   onClick,
   className = "",
   size = "md",
+  href,
 }: ButtonItemProps) {
   const itemRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
@@ -79,16 +82,18 @@ export function ButtonItem({
     <li className="relative p-1 overflow-hidden list-none">
       <audio ref={audioRef} src="/scramble.mp3" preload="auto" />
 
-      <button
-        ref={itemRef}
-        onClick={onClick}
-        onMouseEnter={handleHover}
-        className={`relative z-10 flex items-center justify-center 
+      <Link href={href || "#"}>
+        <button
+          ref={itemRef}
+          onClick={onClick}
+          onMouseEnter={handleHover}
+          className={`relative z-10 flex items-center justify-center 
           font-normal cursor-pointer rounded-md
           ${sizeClasses[size]} ${className}`}
-      >
-        <span ref={textRef}>{text}</span>
-      </button>
+        >
+          <span ref={textRef}>{text}</span>
+        </button>
+      </Link>
     </li>
   );
 }

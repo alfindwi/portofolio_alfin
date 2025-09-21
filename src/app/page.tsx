@@ -1,12 +1,14 @@
 "use client";
 
 import { ButtonItem } from "@/components/buttonScramble";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { Video } from "@/components/video";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { PhotoCard } from "@/components/imageComponent";
+import { InterestWork } from "@/components/interestWork";
 import { TechLogo } from "@/components/techLogo";
-import { DescChooseMe, WhyChooseMe } from "@/components/whyChooseMe";
+import { Video } from "@/components/video";
+import { WhyChooseMe } from "@/components/whyChooseMe";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 
 export default function WelcomePage() {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -228,40 +230,12 @@ export default function WelcomePage() {
             </div>
 
             <div className="flex flex-col md:flex-row justify-between px-4 md:px-15 gap-10 md:gap-8">
-              <div className="relative w-full md:w-[500px] h-[300px] md:h-[500px] order-1 md:order-1">
-                <p
-                  className="absolute left-[-8px] sm:left-[-15px] md:left-[-10px] lg:left-[-15px] 
-              top-60 sm:top-110 md:top-80 lg:md:top-110 
-              -translate-y-1/2 -rotate-90 origin-left text-[#868a8f] tracking-widest"
-                  style={{ fontSize: "clamp(8px, 1.5vw, 12px)" }}
-                >
-                  PHOTO_01101
-                </p>
-
-                <svg
-                  className="absolute inset-0 w-full h-full"
-                  viewBox="0 0 400 400"
-                >
-                  <clipPath id="clip2">
-                    <polygon points="0,0 380,0 400,20 400,400 30,400 0,355" />
-                  </clipPath>
-
-                  <image
-                    href={"/apin3.jpeg"}
-                    width="400"
-                    height="400"
-                    clipPath="url(#clip2)"
-                    preserveAspectRatio="xMidYMid slice"
-                  />
-
-                  <polygon
-                    points="0,0 380,0 400,20 400,400 30,400 0,355"
-                    stroke="white"
-                    fill="none"
-                    strokeWidth="1"
-                  />
-                </svg>
-              </div>
+              <PhotoCard
+                label="PHOTO_01101"
+                imageSrc="/apin3.jpeg"
+                width={400}
+                height={400}
+              />
 
               <div
                 ref={descRef}
@@ -321,7 +295,9 @@ export default function WelcomePage() {
 
       <div id="why-choose-section" className="w-full px-10 ">
         <WhyChooseMe />
-        <DescChooseMe/>
+      </div>
+      <div id="interest-work-section" className="w-full px-10">
+        <InterestWork />
       </div>
     </main>
   );

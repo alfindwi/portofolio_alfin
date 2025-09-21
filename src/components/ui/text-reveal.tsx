@@ -12,7 +12,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: isMobile ? ["start center", "center"] : ["start 80%", "end 20%"],
+    offset: isMobile ? ["start center", "center"] : ["start 85%", "center"],
   });
 
   if (typeof children !== "string") {
