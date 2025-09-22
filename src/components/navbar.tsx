@@ -184,15 +184,27 @@ export function Navbar() {
           <LogoScramble />
 
           <ul className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
-            <NavItem text="PROJECTS" />
-            <NavItem text="ABOUT" />
-            <NavItem text="CONTACT" />
+            <NavItem
+              text="PROJECTS"
+              href="/projects"
+              className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
+            />
+            <NavItem
+              text="ABOUT"
+              href="/about"
+              className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
+            />
+            <NavItem
+              text="CONTACT"
+              href="/contact"
+              className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
+            />
           </ul>
 
           <div className="flex items-center gap-4">
             <button
               onClick={handleSound}
-              className="flex items-center gap-2 text-[11px] cursor-pointer hover:bg-[#353535]/30 hover:border border-[#353535] p-2 rounded-sm bg-transparent"
+              className="hidden md:flex items-center gap-2 text-[11px] cursor-pointer hover:bg-[#353535]/30 hover:border border-[#353535] p-2 rounded-sm bg-transparent"
             >
               TURN ON SOUND
               <LuAudioLines className="text-lg" />

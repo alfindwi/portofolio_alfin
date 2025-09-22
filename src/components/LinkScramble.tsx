@@ -8,9 +8,11 @@ gsap.registerPlugin(ScrambleTextPlugin);
 
 type NavItemProps = {
   text: string;
+  href?: string;
+  className?: string;
 };
 
-export function NavItem({ text }: NavItemProps) {
+export function NavItem({ text, href, className }: NavItemProps) {
   const itemRef = useRef<HTMLAnchorElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
 
@@ -20,7 +22,9 @@ export function NavItem({ text }: NavItemProps) {
     if (!el || !txtEl) return;
 
     txtEl.style.display = "inline-block";
-    txtEl.style.width = `${getTextWidth(text, getComputedStyle(txtEl))}px`;
+    txtEl.style.width = `${
+      getTextWidth(text, getComputedStyle(txtEl)) * 1.5
+    }px`;
 
     const scramble = (toText: string) => {
       gsap.to(txtEl, {
@@ -37,7 +41,7 @@ export function NavItem({ text }: NavItemProps) {
     };
 
     const handleEnter = () => scramble(text.toUpperCase());
-    const handleLeave = () => scramble(text); 
+    const handleLeave = () => scramble(text);
 
     el.addEventListener("mouseenter", handleEnter);
     el.addEventListener("mouseleave", handleLeave);
@@ -50,11 +54,7 @@ export function NavItem({ text }: NavItemProps) {
 
   return (
     <li className="relative p-2 overflow-hidden">
-      <a
-        ref={itemRef}
-        href="#"
-        className="relative z-10 block px-3 py-1 font-grotesk font-bold text-sm cursor-pointer"
-      >
+      <a ref={itemRef} href={href} className={`${className}`}>
         <span ref={textRef}>{text}</span>
       </a>
       <div className="absolute inset-0 rounded-sm z-0" />

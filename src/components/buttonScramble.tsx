@@ -78,25 +78,27 @@ export function ButtonItem({
     }
   };
 
+  const button = (
+    <button
+      ref={itemRef}
+      onClick={onClick}
+      onMouseEnter={handleHover}
+      className={`relative z-10 flex items-center justify-center 
+        font-normal cursor-pointer rounded-md
+        ${sizeClasses[size]} ${className}`}
+    >
+      <span ref={textRef}>{text}</span>
+    </button>
+  );
+
   return (
     <li className="relative p-1 overflow-hidden list-none">
       <audio ref={audioRef} src="/scramble.mp3" preload="auto" />
-
-      <Link href={href || "#"}>
-        <button
-          ref={itemRef}
-          onClick={onClick}
-          onMouseEnter={handleHover}
-          className={`relative z-10 flex items-center justify-center 
-          font-normal cursor-pointer rounded-md
-          ${sizeClasses[size]} ${className}`}
-        >
-          <span ref={textRef}>{text}</span>
-        </button>
-      </Link>
+      {href ? <Link href={href}>{button}</Link> : button}
     </li>
   );
 }
+
 
 function getTextWidth(text: string, style: CSSStyleDeclaration) {
   const canvas = document.createElement("canvas");

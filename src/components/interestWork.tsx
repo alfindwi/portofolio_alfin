@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
-import { PhotoCard } from "./imageComponent";
 import { ButtonItem } from "./buttonScramble";
+import { PhotoCard } from "./imageComponent";
+import { Terminal } from "./ui/terminal";
 
 export function InterestWork() {
   return (
@@ -14,13 +15,12 @@ export function InterestWork() {
           viewport={{ once: true, amount: 0.5 }}
         >
           <h1 className="text-5xl uppercase md:text-8xl font-bold text-white overflow-hidden">
-            Interested in <span className="flex justify-end">working</span>{" "}
-            <span className="flex justify-end">together?</span>
+            Interested in working together?
           </h1>
         </motion.div>
 
-        <div className="md:border-r border-[#6a686d] md:w-[300px] relative">
-          <div className="hidden md:block absolute bottom-0 right-0 w-[400px] border-b-1 border-white"></div>
+        <div className="md:border-r  border-[#6a686d] md:w-[800px] relative">
+          <div className="hidden md:block absolute bottom-0 right-0 w-[385px] border-b-1 border-white"></div>
 
           <h1 className="absolute bottom-0 right-0 flex items-center text-[11px] text-white">
             <span className="tracking-[2px] text-white mr-2">
@@ -30,20 +30,27 @@ export function InterestWork() {
           </h1>
         </div>
       </div>
-      <div className="flex justify-center items-center p-10 border border-[#6a686d] max-w-[750px]">
-        <div className="relative w-fit">
+
+      <div className="flex border-t border-b border-l border-[#6a686d] max-w-full overflow-hidden">
+        <div className="flex-1 border-r border-[#6a686d] p-10 flex justify-center items-center">
           <PhotoCard
             label="PHOTO_1101"
             imageSrc="/apingg.jpeg"
             width={400}
             height={400}
-          />
+          >
+            <div className="flex justify-end items-end h-full p-4">
+              <ButtonItem
+                href="/contact"
+                text="Send a message"
+                className="bg-yellow-300 text-black font-medium px-6 py-2 rounded-sm shadow-md transition"
+              />
+            </div>
+          </PhotoCard>
+        </div>
 
-          <ButtonItem
-            href="/contact"
-            text="Send a message"
-            className="absolute bottom-4 right-4 z-10 bg-yellow-300 text-black font-medium px-6 py-2 rounded-sm shadow-md hover:bg-yellow-400 transition"
-          />
+        <div className="flex-1 p-10 flex justify-center items-center">
+          <Terminal className="w-full">{`echo "Hello World!"`}</Terminal>
         </div>
       </div>
     </div>

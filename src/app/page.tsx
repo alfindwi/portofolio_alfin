@@ -135,8 +135,9 @@ export default function WelcomePage() {
         duration: 1,
         onComplete: () => {
           gsap.set(overlayRef.current, {
+            opacity: 0,
             pointerEvents: "none",
-            display: "none",
+            visibility: "hidden",
           });
 
           const nav = document.querySelector("nav");
@@ -178,7 +179,7 @@ export default function WelcomePage() {
     <main ref={mainRef} className="flex bg-[#0a090f]  flex-col ">
       <div
         ref={overlayRef}
-        className="fixed top-0 left-0 w-screen h-screen bg-[#0a090f] z-50 flex"
+        className="fixed inset-0 bg-[#0a090f] z-50 flex"
       ></div>
 
       <div className="px-10">
@@ -187,7 +188,7 @@ export default function WelcomePage() {
           className="flex flex-col  text-white  justify-center border border-[#6a686d] py-15 relative"
         >
           <div className="max-w-7xl mx-auto ">
-            <div className="relative flex flex-col items-center justify-center py-10">
+            <div className="relative flex flex-col items-center justify-center py-10 ">
               <div className="relative flex flex-col md:flex-row items-center md:items-baseline gap-2 md:gap-4">
                 <p
                   ref={hiTextRef}
@@ -271,7 +272,7 @@ export default function WelcomePage() {
                   <ButtonItem
                     text="Get in touch"
                     size="lg"
-                    className="bg-[#FFB823] text-black rounded w-full md:w-auto"
+                    className="bg-yellow-300 text-black rounded w-full md:w-auto"
                   />
                   <ButtonItem
                     text="See Expirement"

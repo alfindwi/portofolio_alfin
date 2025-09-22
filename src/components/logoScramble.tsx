@@ -50,7 +50,7 @@ export function LogoScramble() {
   return (
     <a
       ref={linkRef}
-      href="#"
+      href="/"
       className="text-2xl  cursor-pointer select-none hover:no-underline hover:translate-x-0 hover:scale-100 transition-none"
     >
       alfin

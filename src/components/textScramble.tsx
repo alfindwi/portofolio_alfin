@@ -1,7 +1,18 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-export function TextScramble({ text, className }: { text: string; className?: string }) {
+gsap.registerPlugin(ScrambleTextPlugin);
+
+export function TextScramble({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
   const textRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {

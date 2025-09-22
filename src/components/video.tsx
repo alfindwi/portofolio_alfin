@@ -14,7 +14,7 @@ type Project = {
   description: string;
 };
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     id: 1,
     videoSrc: "/video.mp4",
@@ -153,7 +153,7 @@ export function Video() {
                   <ButtonItem
                     text="View Case Study"
                     size="sm"
-                    className="bg-yellow-400 text-black w-full"
+                    className="bg-yellow-300 text-black w-full"
                   />
                   <ButtonItem
                     text="See all work"
@@ -166,7 +166,7 @@ export function Video() {
                   <ButtonItem
                     text="View Case Study"
                     size="md"
-                    className="bg-yellow-400 text-black"
+                    className="bg-yellow-300 text-black"
                   />
                   <ButtonItem
                     text="See all work"

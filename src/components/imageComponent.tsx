@@ -1,11 +1,14 @@
-import React from "react";
+// components/PhotoCard.tsx
+import React, { ReactNode } from "react";
 
 interface PhotoCardProps {
   label: string; // teks di kiri
-  imageSrc: string; // path atau url gambar
-  width?: number; // ukuran lebar default 400
-  height?: number; // ukuran tinggi default 400
-  className?: string; // untuk custom styling container
+  imageSrc: string; // path / URL gambar
+  width?: number; // default 400
+  height?: number; // default 400
+  polygonPoints?: string; // custom polygon jika mau
+  children?: ReactNode; // untuk button overlay atau isi tambahan
+  className?: string; // custom styling container
 }
 
 export function PhotoCard({
@@ -13,41 +16,54 @@ export function PhotoCard({
   imageSrc,
   width = 400,
   height = 400,
+  polygonPoints,
+  children,
   className = "",
 }: PhotoCardProps) {
+  const defaultPolygon = `0,0 ${width - 20},0 ${width},20 ${width},${height} 30,${height} 0,${
+    height - 45
+  }`;
+
   return (
     <div
-      className={`relative w-full md:w-[500px] h-[300px] md:h-[500px] ${className}`}
+      className={`relative ${className}`}
+      style={{ width: "100%", maxWidth: `${width}px`, height: "auto" }}
     >
-      <p
-        className="absolute left-[-8px] sm:left-[-15px] md:left-[-10px] lg:left-[-15px] 
-        top-60 sm:top-110 md:top-80 lg:md:top-110 
-        -translate-y-1/2 -rotate-90 origin-left text-[#868a8f] tracking-widest"
-        style={{ fontSize: "clamp(8px, 1.5vw, 12px)" }}
-      >
-        {label}
-      </p>
+      <div className="relative w-72 h-72 md:w-[400px] md:h-[400px]">
+        <p
+          className="absolute -left-5 top-1/2 -translate-y-1/2 -rotate-90 origin-left text-[#868a8f] tracking-widest"
+          style={{ fontSize: "clamp(8px, 1.5vw, 12px)" }}
+        >
+          {label}
+        </p>
 
-      <svg className="absolute inset-0 w-full h-full" viewBox={`0 0 ${width} ${height}`}>
-        <clipPath id="clip2">
-          <polygon points="0,0 380,0 400,20 400,400 30,400 0,355" />
-        </clipPath>
+        <svg
+          className="absolute inset-0 w-full h-full"
+          viewBox={`0 0 ${width} ${height}`}
+        >
+          <clipPath id="clip2">
+            <polygon points={polygonPoints ?? defaultPolygon} />
+          </clipPath>
 
-        <image
-          href={imageSrc}
-          width={width}
-          height={height}
-          clipPath="url(#clip2)"
-          preserveAspectRatio="xMidYMid slice"
-        />
+          <image
+            href={imageSrc}
+            width={width}
+            height={height}
+            clipPath="url(#clip2)"
+            preserveAspectRatio="xMidYMid slice"
+          />
 
-        <polygon
-          points="0,0 380,0 400,20 400,400 30,400 0,355"
-          stroke="white"
-          fill="none"
-          strokeWidth="1"
-        />
-      </svg>
+          <polygon
+            points={polygonPoints ?? defaultPolygon}
+            stroke="white"
+            fill="none"
+            strokeWidth="1"
+          />
+        </svg>
+
+        {children && <div className="absolute inset-0 z-10">{children}</div>}
+      </div>
     </div>
   );
 }
+
