@@ -181,7 +181,7 @@ export function Navbar() {
     }`}
       >
         <div className="relative max-w-full mx-auto flex items-center justify-between py-4 px-8">
-          <LogoScramble />
+          <LogoScramble  />
 
           <ul className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
             <li>
@@ -252,26 +252,33 @@ export function Navbar() {
           </button>
         </div>
 
-        <ul className="flex flex-col items-start justify-start px-5 py-8 gap-6 text-3xl font-bold flex-1">
-          {["WORK", "EXPERIMENTS", "ABOUT", "CONTACT"].map((item, i) => (
-            <li
-              key={i}
-              ref={(el) => {
-                if (el) menuItemsRef.current[i] = el;
-              }}
-            >
-              <a
-                href="#"
-                onClick={toggleMenu}
-                className="flex items-center gap-2 cursor-pointer"
-              >
-                <span className="text-sm opacity-70">
-                  [{String(i + 1).padStart(2, "0")}]
-                </span>
-                {item}
-              </a>
-            </li>
-          ))}
+        <ul className="flex flex-col items-start justify-start py-8 gap-6 text-2xl font-bold flex-1">
+          <li className="flex flex-row items-center ">
+            <span className="text-[11px] mr-2 ml-3">[01]</span>
+            <NavItem
+              text="PROJECTS"
+              href="/projects"
+              className="relative z-10 py-1 font-grotesk text-4xl cursor-pointer"
+            />
+          </li>
+
+          <li className="flex flex-row items-center">
+            <span className="text-[11px] mr-2 ml-3">[02]</span>
+            <NavItem
+              text="ABOUT"
+              href="/about"
+              className="relative z-10 py-1 font-grotesk text-4xl cursor-pointer"
+            />
+          </li>
+
+          <li className="flex flex-row items-center">
+            <span className="text-[11px] mr-2 ml-3">[03]</span>
+            <NavItem
+              text="CONTACT"
+              href="/contact"
+              className="relative z-10 py-1 font-grotesk text-4xl cursor-pointer"
+            />
+          </li>
         </ul>
 
         <div className="text-center pb-6 text-xs opacity-80">

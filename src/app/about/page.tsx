@@ -10,7 +10,6 @@ import {
   MarqueeItem,
 } from "@/components/ui/shadcn-io/marquee";
 import { TextReveal } from "@/components/ui/text-reveal";
-import { projects } from "@/components/video";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -59,7 +58,7 @@ export default function AboutPage() {
       <div className="px-10">
         <div
           id="desc-section"
-          className="flex flex-col text-white border border-[#6a686d] pt-20 relative"
+          className="flex flex-col text-white border border-[#6a686d] pt-30 md:pt-20 relative"
         >
           <div className="relative  flex flex-col justify-start items-start ">
             <motion.div
@@ -71,18 +70,18 @@ export default function AboutPage() {
             >
               <h1
                 className=" leading-[0.95] uppercase font-semibold tracking-tight 
-                     text-3xl md:text-5xl lg:text-8xl"
+                     text-4xl md:text-5xl lg:text-8xl "
               >
                 please
               </h1>
               <h1
                 className="leading-[0.95] ml-12 uppercase font-semibold tracking-tight 
-                     text-3xl md:text-5xl lg:text-8xl"
+                     text-4xl md:text-5xl lg:text-8xl"
               >
                 call me Alfin
               </h1>
             </motion.div>
-            <div className="relative mx-auto px-10 flex flex-col md:flex-row py-16 justify-center items-center gap-14 w-full">
+            <div className="relative mx-auto px-5 flex flex-col md:flex-row py-16 justify-center items-center gap-14 w-full">
               <PhotoCard
                 label="PHOTO_01101"
                 imageSrc="/apingdwi.jpeg"
@@ -110,7 +109,7 @@ export default function AboutPage() {
 
                 <p
                   id="desc-text"
-                  className="leading-relaxed text-gray-200 text-[clamp(1.2rem,2.3vw,1.5rem)] text-center md:text-left"
+                  className="leading-relaxed  md:text-justify text-gray-200 text-[clamp(1.2rem,2.3vw,1.5rem)] text-left"
                 >
                   I am a full-stack developer with over a year of experience
                   building scalable and interactive web experiences, giving
@@ -169,7 +168,7 @@ export default function AboutPage() {
       <div className="px-10">
         <div className="flex justify-start border border-[#6a686d]">
           <div className="border-l border-r border-b border-[#6a686d] ">
-            <div className="sticky top-0 py-20 px-15">
+            <div className="hidden md:block sticky top-0 py-20 px-15">
               <p className="absolute top-[450px] left-30 -translate-x-1/2 text-white text-8xl font-bold">
                 {years[activeSection]}
               </p>
@@ -189,7 +188,7 @@ export default function AboutPage() {
 
           <div className="flex-1">
             <div className="max-w-[1000px] h-full overflow-y-auto p-10 space-y-8">
-              <TextReveal className="text-2xl font-bold text-white">
+              <TextReveal className="text-2xl font-bold text-white text-justify">
                 <span
                   ref={(el) => {
                     if (el) paragraphRefs.current[0] = el;

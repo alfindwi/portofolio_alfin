@@ -13,13 +13,11 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: isMobile ? ["start center", "center"] : ["start 85%", "end center"],
+    offset: isMobile ? ["start center", "end end"] : ["start 85%", "end center"],
   });
 
-  // Kita flatten children dan ubah jadi array yang bisa kita iterasi
   const nodes = React.Children.toArray(children);
 
-  // Hitung total kata (supaya animasi tetap berurutan)
   const allWords: string[] = [];
   nodes.forEach((node) => {
     if (typeof node === "string") {
