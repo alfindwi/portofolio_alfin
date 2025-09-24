@@ -93,7 +93,6 @@ export function ButtonItem({
 
   return (
     <li className="relative p-1 overflow-hidden list-none">
-      <audio ref={audioRef} src="/scramble.mp3" preload="auto" />
       {href ? <Link href={href}>{button}</Link> : button}
     </li>
   );

@@ -53,12 +53,9 @@ export function NavItem({ text, href, className }: NavItemProps) {
   }, [text]);
 
   return (
-    <li className="relative p-2 overflow-hidden">
-      <a ref={itemRef} href={href} className={`${className}`}>
-        <span ref={textRef}>{text}</span>
-      </a>
-      <div className="absolute inset-0 rounded-sm z-0" />
-    </li>
+    <a ref={itemRef} href={href} className={`${className}`}>
+      <span ref={textRef}>{text}</span>
+    </a>
   );
 }
 

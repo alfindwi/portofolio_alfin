@@ -187,99 +187,96 @@ export default function WelcomePage() {
           id="desc-section"
           className="flex flex-col  text-white  justify-center border border-[#6a686d] py-15 relative"
         >
-          <div className="max-w-7xl mx-auto ">
-            <div className="relative flex flex-col items-center justify-center py-10 ">
-              <div className="relative flex flex-col md:flex-row items-center md:items-baseline gap-2 md:gap-4">
-                <p
-                  ref={hiTextRef}
-                  className="text-2xl sm:text-2xl md:text-3xl order-1 md:order-none text-center md:text-left relative z-[55]"
-                ></p>
+          <div className="relative flex flex-col items-center justify-center py-10 ">
+            <div className="relative flex flex-col md:flex-row items-center md:items-baseline gap-2 md:gap-4">
+              <p
+                ref={hiTextRef}
+                className="text-2xl sm:text-2xl md:text-3xl order-1 md:order-none text-center md:text-left relative z-[55]"
+              ></p>
 
-                <h1
-                  ref={fullstackDesktopRef}
-                  className="hidden md:block leading-[0.95] uppercase font-semibold tracking-tight 
+              <h1
+                ref={fullstackDesktopRef}
+                className="hidden md:block leading-[0.95] uppercase font-semibold tracking-tight 
               text-3xl md:text-5xl lg:text-7xl"
-                >
-                  Fullstack
-                </h1>
-              </div>
-
-              <div className="flex flex-col items-center md:hidden gap-2 mt-2">
-                <h1
-                  ref={fullstackMobileRef}
-                  className="leading-[0.95] ml-5 uppercase font-semibold tracking-tight text-[clamp(2.5rem,6vw,2.5rem)]"
-                >
-                  Fullstack
-                </h1>
-                <h1
-                  ref={developerMobileRef}
-                  className="leading-[0.95] mr-5 uppercase font-semibold tracking-tight text-[clamp(2.3rem,5vw,2.2rem)]"
-                >
-                  De<span className="italic mr-2">V</span>eloper
-                </h1>
-              </div>
-
-              <div className="hidden md:block">
-                <h1
-                  ref={developerDesktopRef}
-                  className="leading-[0.95] uppercase font-semibold tracking-tight 
-              text-2xl md:text-5xl lg:text-7xl"
-                >
-                  Developer
-                </h1>
-              </div>
+              >
+                Fullstack
+              </h1>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between px-4 md:px-15 gap-10 md:gap-8">
-              <PhotoCard
-                label="PHOTO_01101"
-                imageSrc="/apin3.jpeg"
-                width={400}
-                height={400}
+            <div className="flex flex-col items-center md:hidden gap-2 mt-2">
+              <h1
+                ref={fullstackMobileRef}
+                className="leading-[0.95] ml-5 uppercase font-semibold tracking-tight text-[clamp(2.5rem,6vw,2.5rem)]"
+              >
+                Fullstack
+              </h1>
+              <h1
+                ref={developerMobileRef}
+                className="leading-[0.95] mr-5 uppercase font-semibold tracking-tight text-[clamp(2.3rem,5vw,2.2rem)]"
+              >
+                De<span className="italic mr-2">V</span>eloper
+              </h1>
+            </div>
+
+            <div className="hidden md:block">
+              <h1
+                ref={developerDesktopRef}
+                className="leading-[0.95] uppercase font-semibold tracking-tight 
+              text-2xl md:text-5xl lg:text-7xl"
+              >
+                Developer
+              </h1>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between px-4 md:px-15 gap-10 md:gap-8">
+            <PhotoCard
+              label="PHOTO_01101"
+              imageSrc="/apin3.jpeg"
+              width={400}
+              height={400}
+            />
+
+            <div
+              ref={descRef}
+              className="relative mt-2 md:mt-10 pl-4 md:pl-10 py-3 md:py-20 order-2 md:order-2"
+            >
+              <span
+                className="absolute  hidden md:block left-0 top-[0.5rem] bottom-[-3.7rem] w-[1px] bg-[#6a686d]"
+                id="border-l"
               />
 
-              <div
-                ref={descRef}
-                className="relative mt-2 md:mt-10 pl-4 md:pl-10 py-3 md:py-20 order-2 md:order-2"
+              <span
+                className="absolute top-0 left-0 h-[2px] w-full bg-white"
+                id="border-t"
+              ></span>
+
+              <span
+                id="star"
+                className="absolute -left-3 -top-3.5 bg-[#0a090f] px-1 text-white text-lg"
               >
-                <span
-                  className="absolute hidden md:block left-0 top-[0.5rem] bottom-[-3.7rem] w-[1px] bg-[#6a686d]"
-                  id="border-l"
+                ✦
+              </span>
+
+              <p
+                id="desc-text"
+                className="leading-relaxed text-gray-200 max-w-full md:max-w-md text-[clamp(1rem,2vw,1.25rem)]"
+              >
+                I created the website from scratch — from the visuals, to the
+                user interactions, to the backend systems that support it,
+                ensuring a seamless experience and scalable performance.
+              </p>
+
+              <div className="flex flex-col md:flex-row gap-4 mt-6">
+                <ButtonItem
+                  text="Get in touch"
+                  size="lg"
+                  className="bg-yellow-300 text-black rounded w-full md:w-auto"
                 />
-
-                <span
-                  className="absolute top-0 left-0 h-[2px] w-full bg-white"
-                  id="border-t"
-                ></span>
-
-                <span
-                  id="star"
-                  className="absolute -left-3 -top-3.5 bg-[#0a090f] px-1 text-white text-lg"
-                >
-                  ✦
-                </span>
-
-                <p
-                  id="desc-text"
-                  className="leading-relaxed text-gray-200 max-w-md text-[clamp(1rem,2vw,1.25rem)]"
-                >
-                  I created the website from scratch — from the visuals, to the
-                  user interactions, to the backend systems that support it,
-                  ensuring a seamless experience and scalable performance.
-                </p>
-
-                <div className="flex flex-col md:flex-row gap-4 mt-6">
-                  <ButtonItem
-                    text="Get in touch"
-                    size="lg"
-                    className="bg-yellow-300 text-black rounded w-full md:w-auto"
-                  />
-                  <ButtonItem
-                    text="See Expirement"
-                    size="lg"
-                    className="bg-black border border-white text-white rounded w-full md:w-auto"
-                  />
-                </div>
+                <ButtonItem
+                  text="See Expirement"
+                  size="lg"
+                  className="bg-black border border-white text-white rounded w-full md:w-auto"
+                />
               </div>
             </div>
           </div>

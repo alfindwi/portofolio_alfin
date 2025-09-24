@@ -116,7 +116,7 @@ export function Video() {
           className="video-card relative w-full h-[100vh] flex justify-center items-center sm:mt-20"
         >
           <p
-            className="absolute left-[-10px] sm:left-[-15px] md:left-[-10px] lg:left-[-15px] 
+            className="absolute left-[-15px] sm:left-[-15px] md:left-[-10px] lg:left-[-15px] 
               top-107 sm:top-110 lg:md:top-100 
               -translate-y-1/2 -rotate-90 origin-left text-white tracking-widest"
             style={{ fontSize: "clamp(10px, 1.5vw, 12px)" }}

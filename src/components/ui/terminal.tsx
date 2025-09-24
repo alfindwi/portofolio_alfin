@@ -258,7 +258,7 @@ export const Terminal = ({
     <div
       ref={containerRef}
       className={cn(
-        "w-full max-w-md rounded-xl border border-[#6a686d] bg-[#15151a]",
+        "w-full max-w-md rounded-xl py-2 border border-[#6a686d] bg-[#15151a]",
         className
       )}
     >
@@ -274,7 +274,7 @@ export const Terminal = ({
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`flex gap-3 items-start pb-3 ${
+            className={`flex gap-3 items-start pb-2 ${
               i !== messages.length - 1 ? "border-b border-[#6a686d]" : ""
             } ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
           >
@@ -320,7 +320,7 @@ export const Terminal = ({
       </div>
 
       {messages.length === 1 && (
-        <div className="flex justify-center gap-2 p-4 border-t border-[#6a686d]">
+        <div className="flex flex-col md:flex-row justify-center gap-2 p-4 border-t border-[#6a686d]">
           <ButtonItem
             text="Look for collaboration"
             onClick={() => handleUserResponse("I'm looking for collaboration")}

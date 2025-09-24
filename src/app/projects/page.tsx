@@ -7,42 +7,30 @@ import { projects } from "@/components/video";
 export default function Projects() {
   return (
     <div className="flex bg-[#0a090f]  flex-col">
-      <div className="px-10">
-        <div className="flex border-t border py-10 border-[#6a686d] max-w-full overflow-hidden">
-          <div className="flex-1 p-10 flex  items-center">
-            <p className="text-5xl md:text-8xl text-white uppercase font-medium">
-              selected my project
+      <div className="px-10 ">
+        <div className="flex border-t border border-[#6a686d] py-5 pt-25 md:py-20 flex-col md:flex-row max-w-full overflow-hidden">
+          <div className="flex-1 px-6 md:px-10 flex md:justify-start">
+            <p className="text-5xl md:text-8xl text-center md:text-left text-white uppercase font-bold">
+              Selected My Project
             </p>
           </div>
 
-          <div className="flex-1 p-10 flex justify-center items-center">
-            <div className="relative mt-2 md:mt-10 pl-4 md:pl-10 py-3 md:py-15 order-2 md:order-2">
-              <span
-                className="absolute hidden md:block left-0 top-[0.5rem] bottom-0 w-[1px] bg-[#6a686d]"
-                id="border-l"
-              />
+          <div className="flex-1 px-6 md:px-10 flex justify-center items-center mt-6 md:mt-0">
+            <div className="relative w-full md:p-10 flex flex-col items-center md:items-start">
+              <span className="block h-[2px] w-full bg-white mb-4 md:absolute md:bottom-0 md:left-0 md:mb-0" />
 
-              <span
-                className="absolute bottom-0 left-0 h-[2px] w-full bg-white"
-                id="border-b"
-              ></span>
+              <span className="hidden md:block absolute left-0 top-[0.5rem] bottom-0 w-[1px] bg-[#6a686d]" />
 
-              <span
-                id="star"
-                className="absolute -left-3 -bottom-3 bg-[#0a090f] px-1 text-white text-lg"
-              >
+              <span className="absolute -left-3 -top-3 md:-bottom-3 md:top-auto bg-[#0a090f] px-1 text-white text-lg">
                 ✦
               </span>
 
-              <p
-                id="desc-text"
-                className="leading-relaxed text-gray-200 max-w-md text-[clamp(1rem,2vw,1.25rem)]"
-              >
+              <p className="leading-relaxed text-gray-200 text-center md:text-left max-w-full md:max-w-md text-[clamp(1rem,2vw,1.25rem)]">
                 A glimpse of some of the projects I've worked on, from
                 migrations and scalable websites to immersive web experiences.
               </p>
 
-              <div className="flex flex-col md:flex-row gap-4 mt-6">
+              <div className="flex flex-col md:flex-row gap-4 mt-6 w-full md:w-auto">
                 <ButtonItem
                   text="Get in touch"
                   size="lg"
@@ -56,7 +44,7 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2">
           {projects.map((project, i) => (
-            <div className="p-5 md:p-10 border border-[#6a686d]">
+            <div key={project.id ?? i}  className="p-5 md:p-10 border border-[#6a686d]">
               <p className="text-[10px] text-white p-2">PROJECT_000{i + 1}</p>
 
               <div className="relative">
@@ -76,7 +64,9 @@ export default function Projects() {
                 </div>
               </div>
 
-              <p className="text-2xl text-white py-3 font-semibold">{project.title}</p>
+              <p className="text-2xl text-white py-3 font-semibold">
+                {project.title}
+              </p>
             </div>
           ))}
         </div>

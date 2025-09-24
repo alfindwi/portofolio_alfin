@@ -1,10 +1,11 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "motion/react";
+import React from "react";
 import { ComponentPropsWithoutRef, FC, ReactNode, useRef } from "react";
 
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
-  children: string;
+  children: ReactNode; // ubah jadi ReactNode supaya bisa pakai <br />
 }
 
 export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
@@ -12,29 +13,51 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: isMobile ? ["start center", "center"] : ["start 85%", "center"],
+    offset: isMobile ? ["start center", "center"] : ["start 85%", "end center"],
   });
 
-  if (typeof children !== "string") {
-    throw new Error("TextReveal: children must be a string");
-  }
+  // Kita flatten children dan ubah jadi array yang bisa kita iterasi
+  const nodes = React.Children.toArray(children);
 
-  const words = children.split(" ");
+  // Hitung total kata (supaya animasi tetap berurutan)
+  const allWords: string[] = [];
+  nodes.forEach((node) => {
+    if (typeof node === "string") {
+      allWords.push(...node.split(" ").filter(Boolean));
+    }
+  });
+
+  let wordIndex = 0;
 
   return (
     <div ref={targetRef} className={className}>
-      <div>
-        <span className={"flex flex-wrap text-white/40 dark:text-white/20 "}>
-          {words.map((word, i) => {
-            const start = i / words.length;
-            const end = start + 1 / words.length;
+      <div className="flex flex-col gap-2">
+        {nodes.map((node, lineIndex) => {
+          if (typeof node === "string") {
+            const words = node.split(" ").filter(Boolean);
             return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
-                {word}
-              </Word>
+              <span
+                key={lineIndex}
+                className="flex flex-wrap text-white/40 dark:text-white/20"
+              >
+                {words.map((word, i) => {
+                  const start = wordIndex / allWords.length;
+                  const end = start + 1 / allWords.length;
+                  wordIndex++;
+                  return (
+                    <Word key={`${lineIndex}-${i}`} progress={scrollYProgress} range={[start, end]}>
+                      {word}
+                    </Word>
+                  );
+                })}
+              </span>
             );
-          })}
-        </span>
+          }
+          if (node === <br />) {
+            return <br key={lineIndex} />;
+          }
+          return node; // fallback kalau ada element lain
+        })}
       </div>
     </div>
   );

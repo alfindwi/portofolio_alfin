@@ -184,21 +184,27 @@ export function Navbar() {
           <LogoScramble />
 
           <ul className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
-            <NavItem
-              text="PROJECTS"
-              href="/projects"
-              className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
-            />
-            <NavItem
-              text="ABOUT"
-              href="/about"
-              className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
-            />
-            <NavItem
-              text="CONTACT"
-              href="/contact"
-              className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
-            />
+            <li>
+              <NavItem
+                text="PROJECTS"
+                href="/projects"
+                className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
+              />
+            </li>
+            <li>
+              <NavItem
+                text="ABOUT"
+                href="/about"
+                className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
+              />
+            </li>
+            <li>
+              <NavItem
+                text="CONTACT"
+                href="/contact"
+                className="relative z-10 block px-3 py-1 font-grotesk text-sm cursor-pointer"
+              />
+            </li>
           </ul>
 
           <div className="flex items-center gap-4">

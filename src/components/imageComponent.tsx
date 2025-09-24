@@ -1,14 +1,13 @@
-// components/PhotoCard.tsx
 import React, { ReactNode } from "react";
 
 interface PhotoCardProps {
-  label: string; // teks di kiri
-  imageSrc: string; // path / URL gambar
-  width?: number; // default 400
-  height?: number; // default 400
-  polygonPoints?: string; // custom polygon jika mau
-  children?: ReactNode; // untuk button overlay atau isi tambahan
-  className?: string; // custom styling container
+  label: string;
+  imageSrc: string; 
+  width?: number;
+  height?: number; 
+  polygonPoints?: string;
+  children?: ReactNode; 
+  className?: string;
 }
 
 export function PhotoCard({
@@ -29,9 +28,9 @@ export function PhotoCard({
       className={`relative ${className}`}
       style={{ width: "100%", maxWidth: `${width}px`, height: "auto" }}
     >
-      <div className="relative w-72 h-72 md:w-[400px] md:h-[400px]">
+      <div className="relative w-full h-70 md:w-[430px] md:h-[430px]">
         <p
-          className="absolute -left-5 top-1/2 -translate-y-1/2 -rotate-90 origin-left text-[#868a8f] tracking-widest"
+          className="absolute -left-2 top-55 md:-left-5 md:top-90 md:-translate-y-1/2 -rotate-90 origin-left text-[#868a8f] tracking-widest"
           style={{ fontSize: "clamp(8px, 1.5vw, 12px)" }}
         >
           {label}

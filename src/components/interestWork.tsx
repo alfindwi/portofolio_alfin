@@ -6,7 +6,7 @@ import { Terminal } from "./ui/terminal";
 export function InterestWork() {
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between">
+      <div className="flex justify-between border-r border-[#6a686d]">
         <motion.div
           className="py-20 flex justify-center items-center"
           initial={{ x: -100, opacity: 0 }}
@@ -19,7 +19,7 @@ export function InterestWork() {
           </h1>
         </motion.div>
 
-        <div className="md:border-r  border-[#6a686d] md:w-[800px] relative">
+        <div className="md:border-r border-[#6a686d] md:w-[800px] relative">
           <div className="hidden md:block absolute bottom-0 right-0 w-[385px] border-b-1 border-white"></div>
 
           <h1 className="absolute bottom-0 right-0 flex items-center text-[11px] text-white">
@@ -31,8 +31,8 @@ export function InterestWork() {
         </div>
       </div>
 
-      <div className="flex border-t border-b border-l border-[#6a686d] max-w-full overflow-hidden">
-        <div className="flex-1 border-r border-[#6a686d] p-10 flex justify-center items-center">
+      <div className="flex flex-col md:flex-row border-t border-b border-l border-[#6a686d] max-w-full overflow-hidden">
+        <div className="flex-1 border-r md:border-b-0 md:border-r border-[#6a686d] p-6 flex justify-center items-center">
           <PhotoCard
             label="PHOTO_1101"
             imageSrc="/apingg.jpeg"
@@ -49,7 +49,7 @@ export function InterestWork() {
           </PhotoCard>
         </div>
 
-        <div className="flex-1 p-10 flex justify-center items-center">
+        <div className="flex-1 p-6 flex justify-center items-center border-r md:border-r-0 border-[#6a686d]">
           <Terminal className="w-full">{`echo "Hello World!"`}</Terminal>
         </div>
       </div>
