@@ -11,7 +11,12 @@ type Project = {
   id: number;
   videoSrc: string;
   title: string;
+  slug: string;
+  challenge: string;
+  solution: string;
   description: string;
+  date: string;
+  techStack: string[];
 };
 
 export const projects: Project[] = [
@@ -19,29 +24,57 @@ export const projects: Project[] = [
     id: 1,
     videoSrc: "/video.mp4",
     title: "Alflix",
+    slug: "alflix",
     description:
       "A movie and series streaming platform with a modern interface for a comfortable",
+    date: "July - September 2025",
+    challenge:
+      "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
+    solution:
+      "Using lazy loading videos, Cloud for file distribution, and React-based UI design for optimal performance.",
+    techStack: ["React", "Chakra UI", "Redux", "Java SpringBoot", "Hibernate", "Midtrans", "Cloudinary", "PostgreSQL"],
   },
   {
     id: 2,
     videoSrc: "/video2.mp4",
-    title: "Portfolio",
+    title: "Circle App",
+    slug: "circle-app",
     description:
       "A personal portfolio website showcasing interactive UI design and smooth animations.",
+    date: "July - September 2025",
+    challenge:
+      "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
+    solution:
+      "Using lazy loading videos, CDN for file distribution, and React-based UI design for optimal performance.",
+    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
     id: 3,
     videoSrc: "/video3.mp4",
-    title: "E-commerce",
+    title: "DumbMerch",
+    slug: "dumbmerch",
     description:
       "A modern e-commerce app with optimized checkout and responsive design.",
+    date: "July - September 2025",
+    challenge:
+      "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
+    solution:
+      "Using lazy loading videos, CDN for file distribution, and React-based UI design for optimal performance.",
+    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
   },
   {
     id: 4,
     videoSrc: "/video4.mp4",
-    title: "Mukbang",
+    title: "WaysBeans",
+    slug: "waysbeans",
     description:
       "A modern e-commerce app with optimized checkout and responsive design.",
+    date: "July - September 2025",
+    challenge:
+      "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
+    solution:
+      "Using lazy loading videos, CDN for file distribution, and React-based UI design for optimal performance.",
+    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
   },
 ];
 

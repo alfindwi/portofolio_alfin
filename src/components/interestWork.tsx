@@ -22,7 +22,7 @@ export function InterestWork() {
         <div className="md:border-r border-[#6a686d] md:w-[800px] relative">
           <div className="hidden md:block absolute bottom-0 right-0 w-[385px] border-b-1 border-white"></div>
 
-          <h1 className="absolute bottom-0 right-0 flex items-center text-[11px] text-white">
+          <h1 className="absolute bottom-0 right-1 flex items-center text-[11px] text-white">
             <span className="tracking-[2px] text-white mr-2">
               //////////////////
             </span>
@@ -31,7 +31,7 @@ export function InterestWork() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row border-t border-b border-l border-[#6a686d] max-w-full overflow-hidden">
+      <div className="flex flex-col md:flex-row border-t border-l border-[#6a686d] max-w-full overflow-hidden">
         <div className="flex-1 border-r md:border-b-0 md:border-r border-[#6a686d] p-6 flex justify-center items-center">
           <PhotoCard
             label="PHOTO_1101"

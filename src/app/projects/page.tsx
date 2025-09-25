@@ -7,7 +7,7 @@ import { projects } from "@/components/video";
 export default function Projects() {
   return (
     <div className="flex bg-[#0a090f]  flex-col">
-      <div className="px-10 ">
+      <div className="px-5 md:px-10">
         <div className="flex border-t border border-[#6a686d] py-5 pt-25 md:py-20 flex-col md:flex-row max-w-full overflow-hidden">
           <div className="flex-1 px-6 md:px-10 flex md:justify-start">
             <p className="text-5xl md:text-8xl text-center md:text-left text-white uppercase font-bold">
@@ -25,7 +25,7 @@ export default function Projects() {
                 ✦
               </span>
 
-              <p className="leading-relaxed text-gray-200 text-center md:text-left max-w-full md:max-w-md text-[clamp(1rem,2vw,1.25rem)]">
+              <p className="leading-relaxed text-gray-200 md:text-left max-w-full md:max-w-md text-[clamp(1rem,2vw,1.25rem)]">
                 A glimpse of some of the projects I've worked on, from
                 migrations and scalable websites to immersive web experiences.
               </p>
@@ -58,7 +58,7 @@ export default function Projects() {
                 <div className="absolute bottom-0 flex items-center justify-center">
                   <ButtonItem
                     text="View Case Study"
-                    href={`/projects/${project.title}`}
+                    href={`/projects/${project.slug}`}
                     className="bg-gray-600/80 text-white px-5 py-2 rounded-sm text-sm"
                   />
                 </div>
@@ -70,7 +70,6 @@ export default function Projects() {
             </div>
           ))}
         </div>
-
         <InterestWork />
       </div>
     </div>

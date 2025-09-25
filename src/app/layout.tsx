@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={`scroll-smooth ${spaceGrotesk.className}`}>
         <Navbar />
         {children}
-        <div className="px-10 bg-[#0a090f]">
+        <div className="px-5 md:px-10 bg-[#0a090f]">
           <Footer />
         </div>
       </body>

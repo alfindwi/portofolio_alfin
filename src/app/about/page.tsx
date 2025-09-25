@@ -55,12 +55,12 @@ export default function AboutPage() {
   const years = ["2024", "2024", "2025", "2025", "2025"];
   return (
     <div className="flex bg-[#0a090f]  flex-col">
-      <div className="px-10">
+      <div className="px-5 md:px-10">
         <div
           id="desc-section"
           className="flex flex-col text-white border border-[#6a686d] pt-30 md:pt-20 relative"
         >
-          <div className="relative  flex flex-col justify-start items-start ">
+          <div className="relative flex flex-col justify-start items-start ">
             <motion.div
               className="relative md:items-baseline px-3"
               initial={{ x: -100, opacity: 0 }}
@@ -70,13 +70,13 @@ export default function AboutPage() {
             >
               <h1
                 className=" leading-[0.95] uppercase font-semibold tracking-tight 
-                     text-4xl md:text-5xl lg:text-8xl "
+                     text-4xl md:text-8xl "
               >
                 please
               </h1>
               <h1
-                className="leading-[0.95] ml-12 uppercase font-semibold tracking-tight 
-                     text-4xl md:text-5xl lg:text-8xl"
+                className="leading-[0.95] uppercase font-semibold tracking-tight 
+                     text-4xl md:text-8xl"
               >
                 call me Alfin
               </h1>
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 className="w-[550px] h-[550px] "
               />
 
-              <div className="relative mt-8 md:mt-0 pl-6 md:pl-14 py-6 md:py-24 order-2 md:order-2 max-w-[550px]">
+              <div className="relative mt-8 md:mt-0 md:pl-14 py-6 md:py-24 order-2 md:order-2 max-w-[550px]">
                 <span
                   className="absolute hidden md:block left-0 top-[0.5rem] bottom-[-4rem] w-[1px] bg-[#6a686d]"
                   id="border-l"
@@ -165,7 +165,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="px-10">
+      <div className="px-5 md:px-10">
         <div className="flex justify-start border border-[#6a686d]">
           <div className="border-l border-r border-b border-[#6a686d] ">
             <div className="hidden md:block sticky top-0 py-20 px-15">
@@ -248,7 +248,8 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-      <div className="px-10">
+      
+      <div className="px-5 md:px-10">
         <InterestWork />
       </div>
     </div>

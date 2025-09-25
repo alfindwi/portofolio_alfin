@@ -5,7 +5,7 @@ import React from "react";
 import { ComponentPropsWithoutRef, FC, ReactNode, useRef } from "react";
 
 export interface TextRevealProps extends ComponentPropsWithoutRef<"div"> {
-  children: ReactNode; // ubah jadi ReactNode supaya bisa pakai <br />
+  children: ReactNode;
 }
 
 export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
@@ -13,7 +13,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: isMobile ? ["start center", "end end"] : ["start 85%", "end center"],
+    offset: isMobile ? ["start center", "end center"] : ["start 85%", "end center"],
   });
 
   const nodes = React.Children.toArray(children);
@@ -36,7 +36,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
             return (
               <span
                 key={lineIndex}
-                className="flex flex-wrap text-white/40 dark:text-white/20"
+                className="flex flex-wrap text-white/40 dark:text-white/20 "
               >
                 {words.map((word, i) => {
                   const start = wordIndex / allWords.length;
@@ -54,7 +54,7 @@ export const TextReveal: FC<TextRevealProps> = ({ children, className }) => {
           if (node === <br />) {
             return <br key={lineIndex} />;
           }
-          return node; // fallback kalau ada element lain
+          return node;
         })}
       </div>
     </div>

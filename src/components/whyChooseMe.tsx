@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function WhyChooseMe() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#0a090f]">
       <div className="flex justify-between">
         <motion.div
           className="py-20 flex justify-center items-center"

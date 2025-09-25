@@ -15,6 +15,7 @@ type ButtonItemProps = {
   className?: string;
   size?: ButtonSize;
   href?: string;
+  children?: React.ReactNode;
 };
 
 export function ButtonItem({
@@ -23,6 +24,7 @@ export function ButtonItem({
   className = "",
   size = "md",
   href,
+  children,
 }: ButtonItemProps) {
   const itemRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
@@ -82,12 +84,13 @@ export function ButtonItem({
     <button
       ref={itemRef}
       onClick={onClick}
+      type="submit"
       onMouseEnter={handleHover}
       className={`relative z-10 flex items-center justify-center 
         font-normal cursor-pointer rounded-md
         ${sizeClasses[size]} ${className}`}
     >
-      <span ref={textRef}>{text}</span>
+      <span ref={textRef}>{text}</span> {children}
     </button>
   );
 

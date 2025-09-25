@@ -230,13 +230,13 @@ export function Navbar() {
 
       <div
         ref={overlayRef}
-        className="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none z-40"
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none z-55"
         onClick={toggleMenu}
       />
 
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 z-50 h-full w-[75%] sm:w-[60%] 
+        className={`fixed top-0 right-0 z-60 h-full w-[75%] sm:w-[60%] 
                  bg-[#5542ff] text-white flex flex-col 
                  [clip-path:polygon(0_0,100%_0,100%_100%,20px_100%,0_calc(100%-40px))]  ${
                    isOpen ? "translate-x-0" : "translate-x-full"

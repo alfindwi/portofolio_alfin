@@ -182,7 +182,7 @@ export default function WelcomePage() {
         className="fixed inset-0 bg-[#0a090f] z-50 flex"
       ></div>
 
-      <div className="px-10">
+      <div className="px-5 md:px-10">
         <div
           id="desc-section"
           className="flex flex-col  text-white  justify-center border border-[#6a686d] py-15 relative"
@@ -291,10 +291,10 @@ export default function WelcomePage() {
         <TechLogo />
       </div>
 
-      <div id="why-choose-section" className="w-full px-10 ">
+      <div id="why-choose-section" className="w-full px-5 md:px-10 bg-[#0a090f]">
         <WhyChooseMe />
       </div>
-      <div id="interest-work-section" className="w-full px-10">
+      <div id="interest-work-section" className="w-full px-5 md:px-10 bg-[#0a090f]">
         <InterestWork />
       </div>
     </main>
