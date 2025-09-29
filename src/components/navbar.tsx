@@ -19,27 +19,7 @@ export function Navbar() {
   const menuItemsRef = useRef<HTMLLIElement[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const handleSound = () => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio("/backsound.mp3");
-      audioRef.current.loop = true;
-      audioRef.current.volume = 0.6;
-    }
-    if (!sound) {
-      audioRef.current
-        .play()
-        .then(() => {
-          setSound(true);
-        })
-        .catch(() => {
-          alert("Browser belum mengizinkan audio. Klik lagi untuk aktifkan.");
-        });
-    } else {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      setSound(false);
-    }
-  };
+  
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
@@ -208,13 +188,7 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={handleSound}
-              className="hidden md:flex items-center gap-2 text-[11px] cursor-pointer hover:bg-[#353535]/30 hover:border border-[#353535] p-2 rounded-sm bg-transparent"
-            >
-              TURN ON SOUND
-              <LuAudioLines className="text-lg" />
-            </button>
+            
             <p className="text-sm font-medium">{time}</p>
             {!isOpen && (
               <button

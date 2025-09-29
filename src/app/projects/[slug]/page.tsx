@@ -108,7 +108,7 @@ export default function ProjectSlug({ params }: { params: { slug: string } }) {
             {`VIDEO_SRC_0002`}
           </p>
           <video
-            src={project?.videoSrc}
+            src={project?.video}
             autoPlay
             loop
             muted

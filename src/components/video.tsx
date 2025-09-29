@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 type Project = {
   id: number;
   videoSrc: string;
+  video?: string;
   title: string;
   slug: string;
   challenge: string;
@@ -23,58 +24,101 @@ export const projects: Project[] = [
   {
     id: 1,
     videoSrc: "/video.mp4",
+    video: "/video.mp4",
     title: "Alflix",
     slug: "alflix",
     description:
       "A movie and series streaming platform with a modern interface for a comfortable",
-    date: "July - September 2025",
+    date: "August - September 2025",
     challenge:
       "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
     solution:
       "Using lazy loading videos, Cloud for file distribution, and React-based UI design for optimal performance.",
-    techStack: ["React", "Chakra UI", "Redux", "Java SpringBoot", "Hibernate", "Midtrans", "Cloudinary", "PostgreSQL"],
+    techStack: [
+      "React Js",
+      "Chakra UI",
+      "Redux",
+      "Java SpringBoot",
+      "Hibernate",
+      "Midtrans",
+      "Cloudinary",
+      "PostgreSQL",
+    ],
   },
   {
     id: 2,
-    videoSrc: "/video2.mp4",
+    videoSrc: "/video1_portofolio2.webm",
+    video: "/video2_portofolio2.webm",
     title: "Circle App",
     slug: "circle-app",
     description:
-      "A personal portfolio website showcasing interactive UI design and smooth animations.",
-    date: "July - September 2025",
+      "web-based social media that allows users to share short posts, images, and interact through likes, replies, and follows in real-time.",
+    date: "August - September 2024",
     challenge:
-      "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
+      "designing a lightweight yet interactive system like modern social media, including state management, user authentication, and rendering performance when displaying a list of threads",
     solution:
-      "Using lazy loading videos, CDN for file distribution, and React-based UI design for optimal performance.",
-    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+      "designing a structured architecture, optimizing the way data is displayed to remain fast despite the large number of threads, and presenting a simple and interactive interface so that users can interact smoothly.",
+    techStack: [
+      "React Js",
+      "Node Js",
+      "Express Js",
+      "Cloudinary",
+      "PostgreSQL",
+      "Chakra UI",
+      "Redux",
+      "Typescript",
+    ],
   },
   {
     id: 3,
-    videoSrc: "/video3.mp4",
+    videoSrc: "/video1_portofolio3.webm",
+    video: "/video2_portofolio3.webm",
     title: "DumbMerch",
     slug: "dumbmerch",
     description:
-      "A modern e-commerce app with optimized checkout and responsive design.",
-    date: "July - September 2025",
+      "A simple e-commerce application for selling merchandise online with product catalog, shopping cart, and checkout features.",
+    date: "October - November 2024",
     challenge:
-      "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
+      "building an easy-to-use e-commerce system, from product management to efficient transaction processes.",
     solution:
-      "Using lazy loading videos, CDN for file distribution, and React-based UI design for optimal performance.",
-    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+      "design a simple shopping flow, display a structured product catalog, and ensure the checkout process is fast and easy for users to understand.",
+    techStack: [
+      "React Js",
+      "Node Js",
+      "Express Js",
+      "Cloudinary",
+      "PostgreSQL",
+      "Chakra UI",
+      "Redux",
+      "Typescript",
+      "Socket IO",
+      "Midtrans",
+    ],
   },
   {
     id: 4,
-    videoSrc: "/video4.mp4",
+    videoSrc: "video1_portofolio4.webm",
+    video: "video1_portofolio4.webm",
     title: "WaysBeans",
     slug: "waysbeans",
     description:
-      "A modern e-commerce app with optimized checkout and responsive design.",
-    date: "July - September 2025",
+      "A simple e-commerce application for selling coffe beans online with product catalog, shopping cart, and checkout features.",
+    date: "Built in 1 day",
     challenge:
-      "Create a smooth streaming system without excessive buffering and a UI that remains lightweight.",
+      "Completed a simple e-commerce application in a very short time, with the main challenge being getting core features like catalog, shopping cart, and checkout to work properly.",
     solution:
-      "Using lazy loading videos, CDN for file distribution, and React-based UI design for optimal performance.",
-    techStack: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+      "Focus on the most important core features, design a concise shopping flow, and keep the design simple so that the application can be completed in 1 day while still providing a decent shopping experience.",
+    techStack: [
+      "React Js",
+      "Node Js",
+      "Express Js",
+      "Cloudinary",
+      "PostgreSQL",
+      "Chakra UI",
+      "Redux",
+      "Typescript",
+      "Midtrans",
+    ],
   },
 ];
 
@@ -199,11 +243,13 @@ export function Video() {
                   <ButtonItem
                     text="View Case Study"
                     size="md"
+                    href={`/projects/${proj.slug}`}
                     className="bg-yellow-300 text-black"
                   />
                   <ButtonItem
-                    text="See all work"
+                    text="See all project"
                     size="md"
+                    href="/projects"
                     className="bg-black/70 border border-white text-white"
                   />
                 </div>
