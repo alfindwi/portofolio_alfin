@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json();
 
     const data = await resend.emails.send({
-      from: "Contact Form <ZxRZS@example.com>",
+      from: "Contact Form https://alfindwi.vercel.app/",
       to: "alfindwi190@gmail.com",
       subject: `Contact Form Submission ${name}`,
       react: ContactEmail({ name, email, message }),
