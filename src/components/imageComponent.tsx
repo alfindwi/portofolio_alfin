@@ -30,7 +30,7 @@ export function PhotoCard({
     >
       <div className="relative w-full h-70 md:w-[430px] md:h-[430px]">
         <p
-          className="absolute -left-0 top-55 md:-left-5 md:top-90 md:-translate-y-1/2 -rotate-90 origin-left text-[#868a8f] tracking-widest"
+          className="absolute -left-1 top-55 md:-left-5 md:top-90 md:-translate-y-1/2 -rotate-90 origin-left text-[#868a8f] tracking-widest"
           style={{ fontSize: "clamp(10px, 1.5vw, 12px)" }}
         >
           {label}

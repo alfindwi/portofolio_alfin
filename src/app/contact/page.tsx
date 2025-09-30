@@ -123,9 +123,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <span className="uppercase text-[14px] tracking-widest text-white">
-                        what's your name?
+                        what's your email?
                       </span>
                       <Input
+                        type="email"
                         className="w-full p-5 mt-2"
                         placeholder="user@gmail.com"
                       />

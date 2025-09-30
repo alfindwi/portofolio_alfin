@@ -52,7 +52,7 @@ export const projects: Project[] = [
     title: "Circle App",
     slug: "circle-app",
     description:
-      "web-based social media that allows users to share short posts, images, and interact through likes, replies, and follows in real-time.",
+      "web-based social media that allows users posts, images, and likes, replies, and follows in real-time.",
     date: "August - September 2024",
     challenge:
       "designing a lightweight yet interactive system like modern social media, including state management, user authentication, and rendering performance when displaying a list of threads",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     title: "DumbMerch",
     slug: "dumbmerch",
     description:
-      "A simple e-commerce application for selling merchandise online with product catalog, shopping cart, and checkout features.",
+      "An e-commerce app for selling merchandise with catalog, cart, and checkout.",
     date: "October - November 2024",
     challenge:
       "building an easy-to-use e-commerce system, from product management to efficient transaction processes.",
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     title: "WaysBeans",
     slug: "waysbeans",
     description:
-      "A simple e-commerce application for selling coffe beans online with product catalog, shopping cart, and checkout features.",
+      "A simple e-commerce app for selling coffee beans with catalog, cart, and checkout.",
     date: "Built in 1 day",
     challenge:
       "Completed a simple e-commerce application in a very short time, with the main challenge being getting core features like catalog, shopping cart, and checkout to work properly.",
@@ -230,11 +230,13 @@ export function Video() {
                   <ButtonItem
                     text="View Case Study"
                     size="sm"
+                    href={`/projects/${proj.slug}`}
                     className="bg-yellow-300 text-black w-full"
                   />
                   <ButtonItem
-                    text="See all work"
+                    text="See all Project"
                     size="sm"
+                    href="/projects"
                     className="bg-black/70 border border-white text-white w-full"
                   />
                 </div>

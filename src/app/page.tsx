@@ -270,11 +270,13 @@ export default function WelcomePage() {
                 <ButtonItem
                   text="Get in touch"
                   size="lg"
+                  href="/contact"
                   className="bg-yellow-300 text-black rounded w-full md:w-auto"
                 />
                 <ButtonItem
-                  text="See Expirement"
+                  text="See Project"
                   size="lg"
+                  href="/projects"
                   className="bg-black border border-white text-white rounded w-full md:w-auto"
                 />
               </div>
