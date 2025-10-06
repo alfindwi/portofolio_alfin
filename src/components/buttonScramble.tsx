@@ -15,6 +15,7 @@ type ButtonItemProps = {
   className?: string;
   size?: ButtonSize;
   href?: string;
+  target?: string;
   children?: React.ReactNode;
 };
 
@@ -25,6 +26,7 @@ export function ButtonItem({
   size = "md",
   href,
   children,
+  target,
 }: ButtonItemProps) {
   const itemRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
@@ -95,12 +97,11 @@ export function ButtonItem({
   );
 
   return (
-    <li className="relative p-1 overflow-hidden list-none">
-      {href ? <Link href={href}>{button}</Link> : button}
+    <li className="relative p-1 overflow-hidden list-none" >
+      {href ? <Link href={href} >{button}</Link> : button}
     </li>
   );
 }
-
 
 function getTextWidth(text: string, style: CSSStyleDeclaration) {
   const canvas = document.createElement("canvas");

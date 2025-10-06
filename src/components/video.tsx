@@ -16,6 +16,7 @@ type Project = {
   challenge: string;
   solution: string;
   description: string;
+  liveDemo?: string;
   date: string;
   techStack: string[];
 };
@@ -97,8 +98,31 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    videoSrc: "video1_portofolio4.webm",
-    video: "video1_portofolio4.webm",
+    videoSrc: "/patunganApp.mp4",
+    video: "/patunganApp.mp4",
+    title: "Patungan",
+    slug: "patungan",
+    description:
+      "Patungan is a web app that helps users split bills fairly and easily through receipt scanning, item assignment, and automatic total calculation.",
+    date: "1 October - 6 October 2025",
+    challenge:
+      "Managing shared expenses is often confusing and time-consuming, especially when calculating individual contributions from receipts.",
+    solution:
+      "Patungan simplifies this by allowing users to upload receipts, automatically parse items using AI, assign them to friends, and instantly calculate fair splits.",
+    techStack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Supabase",
+      "Google Generative AI",
+      "Zod",
+    ],
+    liveDemo: "https://splitbill-nine.vercel.app/",
+  },
+  {
+    id: 5,
+    videoSrc: "/video1_portofolio4.webm",
+    video: "/video1_portofolio4.webm",
     title: "WaysBeans",
     slug: "waysbeans",
     description:
@@ -128,16 +152,17 @@ export function Video() {
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const visibleProjects = projects.filter((p) => p.id >= 1 && p.id <= 4);
   useEffect(() => {
-    const sections = projects.map((_, i) => {
-      return ScrollTrigger.create({
+    const sections = visibleProjects.map((_, i) =>
+      ScrollTrigger.create({
         trigger: containerRef.current,
         start: () => `top -${i * window.innerHeight}`,
         end: () => `+=${window.innerHeight}`,
         onEnter: () => setActiveIndex(i),
         onEnterBack: () => setActiveIndex(i),
-      });
-    });
+      })
+    );
 
     return () => {
       sections.forEach((st) => st.kill());
@@ -182,19 +207,20 @@ export function Video() {
     });
   }, [activeIndex]);
 
-  const proj = projects[activeIndex];
+  const proj = visibleProjects[activeIndex];
+  if (!proj) return null;
 
   return (
     <div ref={containerRef} className="relative w-full h-[450vh] px-10">
-      <div className="sticky top-0 h-screen ">
+      <div className="sticky top-0 h-screen">
         <div
           ref={cardRef}
           key={proj.id}
           className="video-card relative w-full h-[100vh] flex justify-center items-center sm:mt-20"
         >
           <p
-            className="absolute left-[-15px] sm:left-[-15px] md:left-[-10px] lg:left-[-15px] 
-              top-107 sm:top-110 lg:md:top-100 
+            className="absolute left-[-15px] sm:left-[-15px] md:left-[-10px] lg:left-[-15px]
+              top-107 sm:top-110 lg:md:top-100
               -translate-y-1/2 -rotate-90 origin-left text-white tracking-widest"
             style={{ fontSize: "clamp(10px, 1.5vw, 12px)" }}
           >

@@ -5,8 +5,9 @@ import { InterestWork } from "@/components/interestWork";
 import { projects } from "@/components/video";
 import { MoveUpRight } from "lucide-react";
 
-export default function ProjectSlug({ params }: { params: { slug: string } }) {
-  const project = projects.find((p) => p.slug === params.slug);
+export default async function ProjectSlug({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params; 
+  const project = projects.find((p) => p.slug === slug);
 
   return (
     <div className="flex bg-[#0a090f]  flex-col">
@@ -82,7 +83,8 @@ export default function ProjectSlug({ params }: { params: { slug: string } }) {
               <ButtonItem
                 text="View Website"
                 size="md"
-                href="/projects"
+                href={project?.liveDemo}
+                target="_blank"
                 className="border border-[#6a686d] self-start md:self-auto"
               >
                 <MoveUpRight className="ml-5 w-6 h-6" />

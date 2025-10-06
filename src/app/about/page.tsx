@@ -84,7 +84,7 @@ export default function AboutPage() {
             <div className="relative mx-auto px-5 flex flex-col md:flex-row py-16 justify-center items-center gap-14 w-full">
               <PhotoCard
                 label="PHOTO_01101"
-                imageSrc="/apingdwi.jpeg"
+                imageSrc="/lebaran.jpeg"
                 width={400}
                 height={400}
                 className="w-[550px] h-[550px] "
